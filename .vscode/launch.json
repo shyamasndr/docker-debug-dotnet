@@ -18,7 +18,15 @@
                 "pipeArgs": [
                     "-c",
                     "docker exec -i docker-debug-dotnet /vsdbg/vsdbg --interpreter=vscode"
-                ]
+                ],
+                "windows": {
+                    "pipeProgram": "${env:windir}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "pipeCwd": "${workspaceRoot}",
+                    "pipeArgs": [
+                         "-c",
+                         "docker exec -i docker-debug-dotnet ${debuggerCommand}"
+                    ]
+                }
             }
         }
     ]
